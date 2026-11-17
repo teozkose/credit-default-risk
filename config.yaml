@@ -5,6 +5,7 @@ data:
   xls_name: default of credit card clients.xls
   raw: data/raw.parquet
   table: data/features.parquet
+  predictions: data/oof_predictions.parquet
   min_zip_bytes: 1000000
 
 paths:
@@ -59,9 +60,9 @@ evaluation:
   calibration_bins: 10
 
 decision:
-  # Per-account economics of keeping a line open for the next cycle, as shares of the current balance.
+  # Economics of keeping an account's credit line open for the next 12 months, as shares of its balance.
   lgd: 0.60                # loss given default
-  margin: 0.08             # net revenue earned on a good account's balance over the horizon
+  margin: 0.18             # net interest and fee revenue on a good account's balance over the next 12 months
   lgd_sensitivity: [0.40, 0.60, 0.80]
   threshold_grid: [0.02, 0.90, 0.01]   # start, stop, step for the threshold sweep
   min_exposure: 1000       # floor on exposure (NT$) so zero-balance accounts still carry some risk

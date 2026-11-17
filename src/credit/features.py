@@ -79,6 +79,13 @@ def bill_slope(bills: np.ndarray) -> np.ndarray:
     return centred @ t / (t @ t)
 
 
+def band_labels(edges: list[int], kind: str) -> list[str]:
+    """Readable labels: age [20, 30) -> '20-29'; limit (0, 50000] -> 'NT$0-50k'."""
+    if kind == "age":
+        return [f"{lo}-{hi - 1}" for lo, hi in zip(edges[:-1], edges[1:], strict=True)]
+    return [f"NT${lo // 1000}k-{hi // 1000}k" for lo, hi in zip(edges[:-1], edges[1:], strict=True)]
+
+
 def build_features(df: pd.DataFrame, cfg: dict[str, Any]) -> pd.DataFrame:
     """Account-level feature table plus the target, exposure and segment labels."""
     fc = cfg["features"]
@@ -115,8 +122,9 @@ def build_features(df: pd.DataFrame, cfg: dict[str, Any]) -> pd.DataFrame:
     out["exposure"] = np.maximum(df["bill_1"].astype(float), cfg["decision"]["min_exposure"])
     out["sex"] = df["sex"].map(SEX_LABELS)
     out["education_label"] = df["education"].map(EDUCATION_LABELS)
-    out["age_band"] = pd.cut(df["age"], fc["age_bands"], right=False).astype(str)
-    out["limit_band"] = pd.cut(df["limit"], fc["limit_bands"], right=True).astype(str)
+    out["age_band"] = pd.cut(df["age"], fc["age_bands"], right=False, labels=band_labels(fc["age_bands"], "age"))
+    out["limit_band"] = pd.cut(df["limit"], fc["limit_bands"], right=True,
+                               labels=band_labels(fc["limit_bands"], "limit"))
     out[TARGET] = df[TARGET]
     return out
 
