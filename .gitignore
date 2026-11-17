@@ -1,0 +1,14 @@
+data/*
+!data/download.py
+!data/README.md
+models/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+.env
+*.pdf
+*.docx
