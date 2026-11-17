@@ -1,0 +1,893 @@
+{
+  "headline": {
+    "model": "xgboost_isotonic",
+    "roc_auc": 0.7865069624955684,
+    "roc_auc_ci": [
+      0.7799080397109268,
+      0.7927541914809922
+    ],
+    "threshold": 0.25,
+    "approval_rate": 0.7424328383113633,
+    "saving_per_1000": 2880398.046387451,
+    "saving_ci": [
+      2685251.3590522283,
+      3079795.219672951
+    ],
+    "saving_share": 0.4455571398722432
+  },
+  "cv": {
+    "folds": 5,
+    "rows": 29965,
+    "default_rate": 0.22125813449023862,
+    "fold_auc": {
+      "baseline": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "scorecard": [
+        0.7699908959314801,
+        0.7659776079342749,
+        0.7753912858842338,
+        0.7817450660440868,
+        0.7662641905668663
+      ],
+      "logistic": [
+        0.7667478341075185,
+        0.7434590968130589,
+        0.7558757923238191,
+        0.7723113507406226,
+        0.7539815352555619
+      ],
+      "xgboost": [
+        0.7902731414465871,
+        0.7787709733726195,
+        0.7857178753553803,
+        0.7981201892172537,
+        0.7814309320504257
+      ],
+      "xgboost_isotonic": [
+        0.7911362019713524,
+        0.7776907337905081,
+        0.7862121839390269,
+        0.7977124937100485,
+        0.7808079965846006
+      ]
+    },
+    "tuning": [
+      {
+        "fold": 1,
+        "inner_auc": 0.7829927683849819,
+        "params": {
+          "subsample": 0.8,
+          "reg_lambda": 1.0,
+          "min_child_weight": 10,
+          "max_depth": 3,
+          "learning_rate": 0.05,
+          "colsample_bytree": 1.0
+        }
+      },
+      {
+        "fold": 2,
+        "inner_auc": 0.7876312317425445,
+        "params": {
+          "subsample": 0.8,
+          "reg_lambda": 10.0,
+          "min_child_weight": 20,
+          "max_depth": 6,
+          "learning_rate": 0.02,
+          "colsample_bytree": 1.0
+        }
+      },
+      {
+        "fold": 3,
+        "inner_auc": 0.7852746679949879,
+        "params": {
+          "subsample": 0.8,
+          "reg_lambda": 10.0,
+          "min_child_weight": 20,
+          "max_depth": 6,
+          "learning_rate": 0.02,
+          "colsample_bytree": 1.0
+        }
+      },
+      {
+        "fold": 4,
+        "inner_auc": 0.7816976018693383,
+        "params": {
+          "subsample": 0.8,
+          "reg_lambda": 10.0,
+          "min_child_weight": 20,
+          "max_depth": 6,
+          "learning_rate": 0.02,
+          "colsample_bytree": 1.0
+        }
+      },
+      {
+        "fold": 5,
+        "inner_auc": 0.7859069136599764,
+        "params": {
+          "subsample": 0.8,
+          "reg_lambda": 10.0,
+          "min_child_weight": 20,
+          "max_depth": 6,
+          "learning_rate": 0.02,
+          "colsample_bytree": 1.0
+        }
+      }
+    ]
+  },
+  "models": {
+    "baseline": {
+      "roc_auc": 0.5,
+      "pr_auc": 0.22125813449023862,
+      "ks": 0.0,
+      "brier": 0.1723029724121381,
+      "roc_auc_ci": [
+        0.5,
+        0.5
+      ],
+      "pr_auc_ci": [
+        0.21628399799766396,
+        0.22546387452027367
+      ],
+      "ks_ci": [
+        0.0,
+        0.0
+      ],
+      "brier_ci": [
+        0.16952997224165722,
+        0.1746476040557802
+      ],
+      "fold_auc_sd": 0.0,
+      "ece": 5.551115123125783e-17
+    },
+    "scorecard": {
+      "roc_auc": 0.7717331018049454,
+      "pr_auc": 0.5343796257982888,
+      "ks": 0.41679081746261826,
+      "brier": 0.13630356558548093,
+      "roc_auc_ci": [
+        0.765112144242746,
+        0.7782575016302664
+      ],
+      "pr_auc_ci": [
+        0.5208467718428504,
+        0.5472091042036142
+      ],
+      "ks_ci": [
+        0.40477773403274936,
+        0.4293550211929474
+      ],
+      "brier_ci": [
+        0.13350729555985263,
+        0.13882771770652785
+      ],
+      "fold_auc_sd": 0.006700610547889738,
+      "ece": 0.01254019810865711
+    },
+    "logistic": {
+      "roc_auc": 0.7583172921391199,
+      "pr_auc": 0.5157405335036632,
+      "ks": 0.4112340715159001,
+      "brier": 0.13957123024558243,
+      "roc_auc_ci": [
+        0.7515663544461636,
+        0.765432123869494
+      ],
+      "pr_auc_ci": [
+        0.5020937009762811,
+        0.5283545318867597
+      ],
+      "ks_ci": [
+        0.4002230527606653,
+        0.42514351498749653
+      ],
+      "brier_ci": [
+        0.1369025815396011,
+        0.14197752589921417
+      ],
+      "fold_auc_sd": 0.011317120221006189,
+      "ece": 0.007703855046899938
+    },
+    "xgboost": {
+      "roc_auc": 0.7865999455113257,
+      "pr_auc": 0.562299143055795,
+      "ks": 0.4361860707428461,
+      "brier": 0.1331685962421306,
+      "roc_auc_ci": [
+        0.779982154041461,
+        0.7928142960476695
+      ],
+      "pr_auc_ci": [
+        0.5487714996419331,
+        0.5745841581950984
+      ],
+      "ks_ci": [
+        0.42493841576920327,
+        0.4494994565127067
+      ],
+      "brier_ci": [
+        0.13060917891551402,
+        0.1356028742848967
+      ],
+      "fold_auc_sd": 0.007659192853104652,
+      "ece": 0.005085801751095342
+    },
+    "xgboost_isotonic": {
+      "roc_auc": 0.7865069624955684,
+      "pr_auc": 0.5616896301315288,
+      "ks": 0.43614321666099487,
+      "brier": 0.13328112440855572,
+      "roc_auc_ci": [
+        0.7799080397109268,
+        0.7927541914809922
+      ],
+      "pr_auc_ci": [
+        0.548017878003339,
+        0.5742509839559348
+      ],
+      "ks_ci": [
+        0.42541904360857835,
+        0.4488426984203347
+      ],
+      "brier_ci": [
+        0.13073209191533344,
+        0.13570626631468288
+      ],
+      "fold_auc_sd": 0.008016775245759476,
+      "ece": 0.005293050992408369
+    }
+  },
+  "comparisons": {
+    "xgboost_vs_scorecard_auc": {
+      "mean": 0.014786806100871396,
+      "ci": [
+        0.011654998202119602,
+        0.017926326946558428
+      ],
+      "share_a_better": 1.0
+    },
+    "xgboost_vs_logistic_auc": {
+      "mean": 0.02823424248374043,
+      "ci": [
+        0.024222310589095363,
+        0.032239971865228076
+      ],
+      "share_a_better": 1.0
+    },
+    "isotonic_vs_raw_brier": {
+      "mean": 0.00011542770287613074,
+      "ci": [
+        -8.527558649399356e-05,
+        0.0003076382009655334
+      ],
+      "share_a_better": 0.87
+    }
+  },
+  "calibration": {
+    "scorecard": {
+      "predicted": [
+        0.0711,
+        0.0896,
+        0.1031,
+        0.1162,
+        0.1307,
+        0.1486,
+        0.1797,
+        0.2527,
+        0.4074,
+        0.7146
+      ],
+      "observed": [
+        0.0544,
+        0.0718,
+        0.0928,
+        0.1205,
+        0.1488,
+        0.1679,
+        0.1796,
+        0.2646,
+        0.4159,
+        0.6964
+      ],
+      "n": [
+        2997,
+        2996,
+        2997,
+        2996,
+        2997,
+        2996,
+        2996,
+        2997,
+        2996,
+        2997
+      ]
+    },
+    "xgboost": {
+      "predicted": [
+        0.0419,
+        0.0626,
+        0.0824,
+        0.1053,
+        0.1318,
+        0.1615,
+        0.2008,
+        0.2771,
+        0.4369,
+        0.7097
+      ],
+      "observed": [
+        0.0434,
+        0.0601,
+        0.0914,
+        0.1115,
+        0.1355,
+        0.1679,
+        0.1916,
+        0.2766,
+        0.4272,
+        0.7074
+      ],
+      "n": [
+        2997,
+        2996,
+        2997,
+        2996,
+        2997,
+        2996,
+        2996,
+        2997,
+        2996,
+        2997
+      ]
+    },
+    "xgboost_isotonic": {
+      "predicted": [
+        0.0406,
+        0.0658,
+        0.0897,
+        0.1158,
+        0.142,
+        0.1695,
+        0.2012,
+        0.2659,
+        0.4349,
+        0.6999
+      ],
+      "observed": [
+        0.0454,
+        0.0591,
+        0.0948,
+        0.1091,
+        0.1335,
+        0.1702,
+        0.1926,
+        0.2686,
+        0.4326,
+        0.7067
+      ],
+      "n": [
+        2997,
+        2996,
+        2997,
+        2996,
+        2997,
+        2996,
+        2996,
+        2997,
+        2996,
+        2997
+      ]
+    }
+  },
+  "decision": {
+    "lgd": 0.6,
+    "margin": 0.18,
+    "min_exposure": 1000,
+    "best": {
+      "threshold": 0.25,
+      "approval_rate": 0.7424328383113633,
+      "credit_loss": 82656380.39999999,
+      "lost_margin": 24747550.740000002,
+      "total": 107403931.13999999,
+      "per_1000": 3584312.7361922236
+    },
+    "approve_all": {
+      "threshold": 1.01,
+      "approval_rate": 1.0,
+      "credit_loss": 193715058.59999996,
+      "lost_margin": 0.0,
+      "total": 193715058.59999996,
+      "per_1000": 6464710.782579674
+    },
+    "analytic_threshold": 0.23076923076923075,
+    "scorecard_best": {
+      "threshold": 0.28,
+      "approval_rate": 0.7808443183714333,
+      "credit_loss": 82504929.6,
+      "lost_margin": 24824092.14,
+      "total": 107329021.74,
+      "per_1000": 3581812.8396462537
+    },
+    "scorecard_saving_share": 0.44594383877186095,
+    "xgboost_minus_scorecard_cost": {
+      "mean": 3039.0792844986063,
+      "ci": [
+        -51905.14395127669,
+        52510.34907391942
+      ],
+      "share_a_cheaper": 0.459
+    },
+    "sensitivity": [
+      {
+        "lgd": 0.4,
+        "threshold": 0.32,
+        "analytic": 0.31034482758620685,
+        "approval_rate": 0.7923577507091607,
+        "saving_per_1000": 1658048.3524111467,
+        "saving_share": 0.3847152041694707,
+        "regret_of_base_threshold": 13076.950442182366
+      },
+      {
+        "lgd": 0.6,
+        "threshold": 0.25,
+        "analytic": 0.23076923076923075,
+        "approval_rate": 0.7424328383113633,
+        "saving_per_1000": 2880398.046387451,
+        "saving_share": 0.4455571398722432,
+        "regret_of_base_threshold": 0.0
+      },
+      {
+        "lgd": 0.8,
+        "threshold": 0.17,
+        "analytic": 0.1836734693877551,
+        "approval_rate": 0.5521107959285834,
+        "saving_per_1000": 4221265.362923412,
+        "saving_share": 0.48972786697956794,
+        "regret_of_base_threshold": 105440.6721174717
+      }
+    ]
+  },
+  "segments": [
+    {
+      "segment": "age_band",
+      "level": "20-29",
+      "n": 9603,
+      "default_rate": 0.22867853795688847,
+      "mean_pd": 0.23035176371931004,
+      "roc_auc": 0.7883960564552361,
+      "roc_auc_ci": [
+        0.776898888722024,
+        0.7987425693675212
+      ],
+      "approval_rate": 0.7321670311361033
+    },
+    {
+      "segment": "age_band",
+      "level": "30-39",
+      "n": 11226,
+      "default_rate": 0.20265455193301266,
+      "mean_pd": 0.20442191987655287,
+      "roc_auc": 0.7851814457467458,
+      "roc_auc_ci": [
+        0.7736405615195493,
+        0.7956121557796321
+      ],
+      "approval_rate": 0.7716907179761269
+    },
+    {
+      "segment": "age_band",
+      "level": "40-49",
+      "n": 6456,
+      "default_rate": 0.22939900867410162,
+      "mean_pd": 0.22853425224384738,
+      "roc_auc": 0.7866345909154144,
+      "roc_auc_ci": [
+        0.7726693590378185,
+        0.7990615417970621
+      ],
+      "approval_rate": 0.7311028500619579
+    },
+    {
+      "segment": "age_band",
+      "level": "50-79",
+      "n": 2680,
+      "default_rate": 0.25298507462686565,
+      "mean_pd": 0.2560242757837135,
+      "roc_auc": 0.7757681109451021,
+      "roc_auc_ci": [
+        0.7588415919582727,
+        0.7954535758562716
+      ],
+      "approval_rate": 0.683955223880597
+    },
+    {
+      "segment": "education_label",
+      "level": "graduate school",
+      "n": 10563,
+      "default_rate": 0.19236959197197767,
+      "mean_pd": 0.1944732805796155,
+      "roc_auc": 0.7905389572720887,
+      "roc_auc_ci": [
+        0.7801030286831969,
+        0.8008647519768073
+      ],
+      "approval_rate": 0.7879390324718356
+    },
+    {
+      "segment": "education_label",
+      "level": "high school",
+      "n": 4915,
+      "default_rate": 0.25167853509664295,
+      "mean_pd": 0.25084966682485044,
+      "roc_auc": 0.7775277238912751,
+      "roc_auc_ci": [
+        0.762161338195148,
+        0.7921835640992992
+      ],
+      "approval_rate": 0.6838250254323499
+    },
+    {
+      "segment": "education_label",
+      "level": "other",
+      "n": 468,
+      "default_rate": 0.07051282051282051,
+      "mean_pd": 0.11895873893804894,
+      "roc_auc": 0.6071752002786487,
+      "roc_auc_ci": [
+        0.5026312639095445,
+        0.7219119727366254
+      ],
+      "approval_rate": 0.9188034188034188
+    },
+    {
+      "segment": "education_label",
+      "level": "university",
+      "n": 14019,
+      "default_rate": 0.23739211070689778,
+      "mean_pd": 0.23722452286808776,
+      "roc_auc": 0.7825624637995294,
+      "roc_auc_ci": [
+        0.7739852099913449,
+        0.7906954087872189
+      ],
+      "approval_rate": 0.7228047649618375
+    },
+    {
+      "segment": "limit_band",
+      "level": "NT$0k-50k",
+      "n": 7673,
+      "default_rate": 0.3178678482992311,
+      "mean_pd": 0.3182893106019213,
+      "roc_auc": 0.7548439861548024,
+      "roc_auc_ci": [
+        0.7433540125522796,
+        0.7671245764370361
+      ],
+      "approval_rate": 0.5734393327251401
+    },
+    {
+      "segment": "limit_band",
+      "level": "NT$50k-140k",
+      "n": 7607,
+      "default_rate": 0.24740370711187065,
+      "mean_pd": 0.24644585753756793,
+      "roc_auc": 0.7821887428128582,
+      "roc_auc_ci": [
+        0.769622032302172,
+        0.7958796064479005
+      ],
+      "approval_rate": 0.708426449322992
+    },
+    {
+      "segment": "limit_band",
+      "level": "NT$140k-240k",
+      "n": 7627,
+      "default_rate": 0.17359381145928937,
+      "mean_pd": 0.17607677516590542,
+      "roc_auc": 0.7686836772207932,
+      "roc_auc_ci": [
+        0.7545768109536699,
+        0.781950912638064
+      ],
+      "approval_rate": 0.8240461518290284
+    },
+    {
+      "segment": "limit_band",
+      "level": "NT$240k-1000k",
+      "n": 7058,
+      "default_rate": 0.13955794842731653,
+      "mean_pd": 0.14289962714510707,
+      "roc_auc": 0.7716028589554665,
+      "roc_auc_ci": [
+        0.7580919516361616,
+        0.7863888795026992
+      ],
+      "approval_rate": 0.8746103712099745
+    }
+  ],
+  "fairness": [
+    {
+      "group": "female",
+      "n": 18091,
+      "default_rate": 0.20789342767121774,
+      "mean_pd": 0.21391478028299157,
+      "approval_rate": 0.758885633740534,
+      "rejected_good_rate": 0.15080251221214236,
+      "approved_bad_rate": 0.4147833023132146
+    },
+    {
+      "group": "male",
+      "n": 11874,
+      "default_rate": 0.2416203469765875,
+      "mean_pd": 0.23568623555817309,
+      "approval_rate": 0.7173656728987704,
+      "rejected_good_rate": 0.1781232648528595,
+      "approved_bad_rate": 0.38933426280934125
+    }
+  ],
+  "scorecard": {
+    "selected": [
+      "limit",
+      "pay_status_1",
+      "pay_status_2",
+      "pay_status_3",
+      "pay_status_4",
+      "pay_status_5",
+      "pay_status_6",
+      "util_1",
+      "util_mean",
+      "util_max",
+      "pay_ratio_1",
+      "pay_ratio_mean",
+      "pay_ratio_min_3",
+      "months_late",
+      "max_late",
+      "late_streak",
+      "months_revolving",
+      "months_no_payment",
+      "bill_trend",
+      "balance_change_3"
+    ],
+    "iv": [
+      {
+        "feature": "pay_status_1",
+        "iv": 0.8697173384234294,
+        "bins": 4,
+        "selected": true
+      },
+      {
+        "feature": "months_late",
+        "iv": 0.8378854476458704,
+        "bins": 4,
+        "selected": true
+      },
+      {
+        "feature": "max_late",
+        "iv": 0.7426250748684371,
+        "bins": 3,
+        "selected": true
+      },
+      {
+        "feature": "late_streak",
+        "iv": 0.7268439148089987,
+        "bins": 3,
+        "selected": true
+      },
+      {
+        "feature": "pay_status_2",
+        "iv": 0.5416367141325229,
+        "bins": 3,
+        "selected": true
+      },
+      {
+        "feature": "pay_status_3",
+        "iv": 0.40881770260485273,
+        "bins": 3,
+        "selected": true
+      },
+      {
+        "feature": "months_no_payment",
+        "iv": 0.4080402076089189,
+        "bins": 3,
+        "selected": true
+      },
+      {
+        "feature": "pay_ratio_min_3",
+        "iv": 0.3796352226028445,
+        "bins": 5,
+        "selected": true
+      },
+      {
+        "feature": "pay_status_4",
+        "iv": 0.35495986150297176,
+        "bins": 3,
+        "selected": true
+      },
+      {
+        "feature": "pay_status_5",
+        "iv": 0.3290987158093229,
+        "bins": 3,
+        "selected": true
+      },
+      {
+        "feature": "pay_status_6",
+        "iv": 0.2815242676692365,
+        "bins": 3,
+        "selected": true
+      },
+      {
+        "feature": "months_revolving",
+        "iv": 0.277283134476101,
+        "bins": 5,
+        "selected": true
+      },
+      {
+        "feature": "limit",
+        "iv": 0.162130487991536,
+        "bins": 6,
+        "selected": true
+      },
+      {
+        "feature": "pay_ratio_1",
+        "iv": 0.13754800434734085,
+        "bins": 6,
+        "selected": true
+      },
+      {
+        "feature": "util_mean",
+        "iv": 0.12285711622252916,
+        "bins": 6,
+        "selected": true
+      },
+      {
+        "feature": "pay_ratio_mean",
+        "iv": 0.12199335321332444,
+        "bins": 6,
+        "selected": true
+      },
+      {
+        "feature": "util_max",
+        "iv": 0.08958821911481592,
+        "bins": 6,
+        "selected": true
+      },
+      {
+        "feature": "bill_trend",
+        "iv": 0.07365799583231197,
+        "bins": 6,
+        "selected": true
+      },
+      {
+        "feature": "util_1",
+        "iv": 0.06574463252099245,
+        "bins": 6,
+        "selected": true
+      },
+      {
+        "feature": "balance_change_3",
+        "iv": 0.05137708486940529,
+        "bins": 6,
+        "selected": true
+      },
+      {
+        "feature": "age",
+        "iv": 0.01720285593236427,
+        "bins": 6,
+        "selected": false
+      },
+      {
+        "feature": "education",
+        "iv": 0.015690396559324426,
+        "bins": 3,
+        "selected": false
+      }
+    ],
+    "points_rows": 90,
+    "score_range": [
+      445.4759580785971,
+      566.5519089499232
+    ],
+    "score_median_default": 510.72985186183115,
+    "score_median_good": 542.8300453268547
+  },
+  "importance": {
+    "xgboost_gain": [
+      {
+        "feature": "max_late",
+        "share": 0.4003550381353623
+      },
+      {
+        "feature": "pay_status_1",
+        "share": 0.22805215911948287
+      },
+      {
+        "feature": "months_late",
+        "share": 0.1863583696938726
+      },
+      {
+        "feature": "months_no_payment",
+        "share": 0.015513675289815477
+      },
+      {
+        "feature": "util_max",
+        "share": 0.014225593057477075
+      },
+      {
+        "feature": "limit",
+        "share": 0.013125630269096057
+      },
+      {
+        "feature": "pay_status_2",
+        "share": 0.013087103923853954
+      },
+      {
+        "feature": "util_mean",
+        "share": 0.012891318650231142
+      },
+      {
+        "feature": "pay_ratio_min_3",
+        "share": 0.011411164217888068
+      },
+      {
+        "feature": "util_1",
+        "share": 0.011257786701955338
+      },
+      {
+        "feature": "pay_status_3",
+        "share": 0.009698314219446526
+      },
+      {
+        "feature": "pay_status_6",
+        "share": 0.009600203142963068
+      }
+    ]
+  },
+  "data": {
+    "rows": 30000,
+    "columns": 25,
+    "default_rate": 0.2212,
+    "undocumented_codes": {
+      "education": 345,
+      "marriage": 54
+    },
+    "negative_bill_cells": 3932,
+    "duplicate_rows_ignoring_id": 35,
+    "limit_range": [
+      10000,
+      1000000
+    ],
+    "age_range": [
+      21,
+      79
+    ],
+    "cleaning": [
+      {
+        "step": "Fold undocumented EDUCATION codes 0, 5, 6 into 4 (other)",
+        "rows_before": 30000,
+        "dropped": 0,
+        "rows_after": 30000,
+        "changed": 345
+      },
+      {
+        "step": "Fold undocumented MARRIAGE code 0 into 3 (other)",
+        "rows_before": 30000,
+        "dropped": 0,
+        "rows_after": 30000,
+        "changed": 54
+      },
+      {
+        "step": "Drop accounts identical on every field except the id",
+        "rows_before": 30000,
+        "dropped": 35,
+        "rows_after": 29965,
+        "changed": 0
+      }
+    ],
+    "modelling_rows": 29965
+  },
+  "runtime_s": 114.8
+}

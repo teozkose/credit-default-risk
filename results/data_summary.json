@@ -1,0 +1,43 @@
+{
+  "rows": 30000,
+  "columns": 25,
+  "default_rate": 0.2212,
+  "undocumented_codes": {
+    "education": 345,
+    "marriage": 54
+  },
+  "negative_bill_cells": 3932,
+  "duplicate_rows_ignoring_id": 35,
+  "limit_range": [
+    10000,
+    1000000
+  ],
+  "age_range": [
+    21,
+    79
+  ],
+  "cleaning": [
+    {
+      "step": "Fold undocumented EDUCATION codes 0, 5, 6 into 4 (other)",
+      "rows_before": 30000,
+      "dropped": 0,
+      "rows_after": 30000,
+      "changed": 345
+    },
+    {
+      "step": "Fold undocumented MARRIAGE code 0 into 3 (other)",
+      "rows_before": 30000,
+      "dropped": 0,
+      "rows_after": 30000,
+      "changed": 54
+    },
+    {
+      "step": "Drop accounts identical on every field except the id",
+      "rows_before": 30000,
+      "dropped": 35,
+      "rows_after": 29965,
+      "changed": 0
+    }
+  ],
+  "modelling_rows": 29965
+}
