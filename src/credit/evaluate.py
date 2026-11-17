@@ -29,7 +29,8 @@ class SortedScores:
         w = np.ones_like(self.y) if w is None else np.asarray(w, dtype=float)[self.order]
         pos = np.add.reduceat(w * self.y, self.starts)
         neg = np.add.reduceat(w * (1 - self.y), self.starts)
-        return np.cumsum(pos), np.cumsum(neg)
+        keep = (pos + neg) > 0  # a tied block that the resample never drew is not a threshold
+        return np.cumsum(pos[keep]), np.cumsum(neg[keep])
 
     def metrics(self, w: np.ndarray | None = None) -> dict[str, float]:
         tp, fp = self.curve(w)
