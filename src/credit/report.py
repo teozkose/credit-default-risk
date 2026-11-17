@@ -3,10 +3,10 @@ so every number in the write-up comes from the last run."""
 
 from __future__ import annotations
 
-import base64
 import html
 import json
 import re
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -192,16 +192,19 @@ def fill(template: str, m: dict[str, Any], table_fn: Any) -> str:
     return re.sub(r"\{\{(\w+)\}\}", lambda mt: vals[mt.group(1)], template)
 
 
-def _img(path: Path, alt: str) -> str:
-    data = base64.b64encode(path.read_bytes()).decode("ascii")
-    return f'<figure><img alt="{html.escape(alt)}" src="data:image/png;base64,{data}"></figure>'
+def _img(path: Path, docs: Path, alt: str) -> str:
+    """Copy a figure next to the page (GitHub Pages serves docs/ only) and link it."""
+    target = docs / "figures" / path.name
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(path, target)
+    return f'<figure><img alt="{html.escape(alt)}" src="figures/{path.name}"></figure>'
 
 
-def render_html(m: dict[str, Any], results: Path) -> str:
-    """One self-contained page: TL;DR, figures, tables, method, limitations."""
+def render_html(m: dict[str, Any], results: Path, docs: Path) -> str:
+    """One page with its figures beside it: TL;DR, figures, tables, method, limitations."""
     v = values(m)
     t = {k: html_table(h, fn(m)) for k, (h, fn) in TABLES.items()}
-    f = {name: _img(results / f"{name}.png", alt) for name, alt in FIGURES}
+    f = {name: _img(results / f"{name}.png", docs, alt) for name, alt in FIGURES}
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -296,5 +299,5 @@ def render_all(cfg: dict[str, Any]) -> None:
     (ROOT / "README.md").write_text(fill(template, m, md_table))
     docs = resolve(cfg["paths"]["docs"])
     docs.mkdir(exist_ok=True)
-    (docs / "index.html").write_text(render_html(m, results))
+    (docs / "index.html").write_text(render_html(m, results, docs))
     print("rendered README.md and docs/index.html")
